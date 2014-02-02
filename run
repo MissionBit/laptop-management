@@ -1,2 +1,3 @@
 #!/bin/bash
 echo [laptop-management] $(hostname) running
+./add-meraki-profile.py
