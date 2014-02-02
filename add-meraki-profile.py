@@ -16,7 +16,7 @@ def fetch_profile():
         'https://m.meraki.com/ios/ng_lookup/' + network))
     return opener.open(meta['url']).read()
 
-def main():
+def install_profile():
     if any(p.endswith('com.meraki.sm.mdm') for p in
            subprocess.check_output(['/usr/bin/profiles', '-L']).splitlines()):
         return
@@ -26,6 +26,9 @@ def main():
     with open(name, 'wb') as f:
         f.write(fetch_profile())
     subprocess.call(['/usr/bin/profiles', '-I', '-F', name])
+
+def main():
+    install_profile()
 
 if __name__ == '__main__':
     main()
