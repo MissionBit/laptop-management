@@ -2,3 +2,4 @@
 echo [laptop-management] $(hostname) running
 ./add-meraki-profile.py
 ./add-meraki-agent.py
+./set-loginwindow-message.sh
