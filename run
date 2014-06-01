@@ -8,3 +8,4 @@ echo "[laptop-management] setting loginwindow message"
 ./set-loginwindow-message.sh
 echo "[laptop-management] ensuring java is installed"
 ./install-java.sh
+echo "[laptop-management] run complete"
