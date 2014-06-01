@@ -21,6 +21,8 @@ if [ ! -e "/Applications/${app}" ]; then
   mountpoint=$(hdiutil attach "${dl}" | tail -n1 | cut -f3-)
   echo "[laptop-management $$] mounted app dmg at ${mountpoint}"
   rsync -a "${mountpoint}/${app}/" "/Applications/${app}/"
+  chown -R missionbit:admin "/Applications/${app}"
+  chmod -R g+w "/Applications/${app}"
   echo "[laptop-management $$] unmounting app dmg from ${mountpoint}"
   hdiutil detach "${mountpoint}"
 fi
