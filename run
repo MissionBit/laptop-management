@@ -1,5 +1,8 @@
 #!/bin/bash
-echo [laptop-management] $(hostname) running
+echo "[laptop-management] $(hostname) running"
+echo "[laptop-management] ensuring meraki profile"
 ./add-meraki-profile.py
+echo "[laptop-management] ensuring meraki agent"
 ./add-meraki-agent.py
+echo "[laptop-management] setting loginwindow message"
 ./set-loginwindow-message.sh

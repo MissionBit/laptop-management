@@ -4,7 +4,7 @@ t0=$(date '+%s')
 git fetch origin
 git reset --hard origin/master
 cd $(dirname ${BASH_SOURCE[0]})
-./run
+./run 2>&1
 t1=$(date '+%s')
 dt=$((t1 - t0))
 echo "Finished in ${dt} seconds"
