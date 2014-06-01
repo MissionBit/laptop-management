@@ -18,7 +18,7 @@ if [ ! -e /System/Library/Java/JavaVirtualMachines ]; then
       echo "[laptop-management] jdk download successful"
   fi
   echo "[laptop-management] attempting Java install"
-  mountpoint=$(hdiutil attach "${jdk}" | tail -n1 | cut -d' ' -f3-)
+  mountpoint=$(hdiutil attach "${jdk}" | tail -n1 | cut -f3-)
   echo "[laptop-management] mounted at ${mountpoint}"
   echo "[laptop-management] installing ${mountpoint}/${jdk_pkg}"
   /usr/sbin/installer \
