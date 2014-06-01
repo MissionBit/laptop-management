@@ -1,13 +1,13 @@
 #!/bin/bash
-echo "[laptop-management] $(hostname) running"
-echo "[laptop-management] ensuring meraki profile"
+echo "[laptop-management $$] $(hostname) running"
+echo "[laptop-management $$] ensuring meraki profile"
 ./add-meraki-profile.py
-echo "[laptop-management] ensuring meraki agent"
+echo "[laptop-management $$] ensuring meraki agent"
 ./add-meraki-agent.py
-echo "[laptop-management] setting loginwindow message"
+echo "[laptop-management $$] setting loginwindow message"
 ./set-loginwindow-message.sh
-echo "[laptop-management] ensuring java is installed"
+echo "[laptop-management $$] ensuring java is installed"
 ./install-java.sh
-echo "[laptop-management] ensuring Android Studio is installed"
+echo "[laptop-management $$] ensuring Android Studio is installed"
 ./install-android-studio.sh
-echo "[laptop-management] run complete"
+echo "[laptop-management $$] run complete"
