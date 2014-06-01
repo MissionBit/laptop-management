@@ -7,6 +7,7 @@ if [ ! -e /System/Library/Java/JavaVirtualMachines ]; then
   dldir="/tmp/missionbit-laptop-management"
   jdk="${dldir}/jdk-8u5-macosx-x64.dmg"
   jdk_sha="dd91b51ff93f1089b9053cf7d7a8b3db568ed65e"
+  jdk_pkg="JDK 8 Update 05.pkg"
   mkdir -p "${dldir}"
   check_dmg "${jdk}" "${jdk_sha}"
   if [ $? -ne 0 ]; then
@@ -16,4 +17,9 @@ if [ ! -e /System/Library/Java/JavaVirtualMachines ]; then
       mv "${jdk}.$$" "${jdk}" && \
       echo "[laptop-management] jdk download successful"
   fi
+  mountpoint=$(hdiutil attach "${jdk}" | tail -n1 | cut -d' ' -f3-)
+  /usr/sbin/installer \
+      -pkg "${mountpoint}/${jdk_pkg}" \
+      -target "/"
+  hdiutil detach "${mountpoint}"
 fi
