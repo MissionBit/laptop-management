@@ -6,6 +6,8 @@ echo "[laptop-management $$] ensuring meraki agent"
 ./add-meraki-agent.py
 echo "[laptop-management $$] setting loginwindow message"
 ./set-loginwindow-message.sh
+echo "[laptop-management $$] ensuring java se 6 is installed"
+./install-java-6.sh
 echo "[laptop-management $$] ensuring java is installed"
 ./install-java.sh
 echo "[laptop-management $$] ensuring Android Studio is installed"
